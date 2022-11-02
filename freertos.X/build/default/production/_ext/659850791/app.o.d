@@ -6,8 +6,6 @@ build/default/production/_ext/659850791/app.o: ../src/app/app.c \
  ../src/config/default/device.h \
  ../src/config/default/toolchain_specifics.h \
  ../src/config/default/peripheral/evic/plib_evic.h \
- ../src/config/default/peripheral/uart/plib_uart5.h \
- ../src/config/default/peripheral/uart/plib_uart_common.h \
  ../src/third_party/rtos/FreeRTOS/Source/include/FreeRTOS.h \
  ../src/config/default/FreeRTOSConfig.h \
  ../src/third_party/rtos/FreeRTOS/Source/include/projdefs.h \
@@ -17,7 +15,11 @@ build/default/production/_ext/659850791/app.o: ../src/app/app.c \
  ../src/third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h \
  ../src/third_party/rtos/FreeRTOS/Source/include/task.h \
  ../src/third_party/rtos/FreeRTOS/Source/include/list.h \
- ../src/app/tasks/tasks.h ../src/app/process/serial.h
+ ../src/config/default/peripheral/uart/plib_uart5.h \
+ ../src/config/default/peripheral/uart/plib_uart_common.h \
+ ../src/config/default/system/reset/sys_reset.h ../src/app/app.h \
+ ../src/app/tasks/tasks.h ../src/app/process/serial.h \
+ ../src/app/process/debug.h
 
 ../src/app/app.h:
 
@@ -34,10 +36,6 @@ build/default/production/_ext/659850791/app.o: ../src/app/app.c \
 ../src/config/default/toolchain_specifics.h:
 
 ../src/config/default/peripheral/evic/plib_evic.h:
-
-../src/config/default/peripheral/uart/plib_uart5.h:
-
-../src/config/default/peripheral/uart/plib_uart_common.h:
 
 ../src/third_party/rtos/FreeRTOS/Source/include/FreeRTOS.h:
 
@@ -57,6 +55,16 @@ build/default/production/_ext/659850791/app.o: ../src/app/app.c \
 
 ../src/third_party/rtos/FreeRTOS/Source/include/list.h:
 
+../src/config/default/peripheral/uart/plib_uart5.h:
+
+../src/config/default/peripheral/uart/plib_uart_common.h:
+
+../src/config/default/system/reset/sys_reset.h:
+
+../src/app/app.h:
+
 ../src/app/tasks/tasks.h:
 
 ../src/app/process/serial.h:
+
+../src/app/process/debug.h:

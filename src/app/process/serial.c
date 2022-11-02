@@ -5,8 +5,8 @@
 // *****************************************************************************
 
 char rxBuffer[256];
+int rxIndex = 0;
 uint8_t rxByte;
-int rxInIndex = 0;
 
 // *****************************************************************************
 // Section: Function Definitions
@@ -21,7 +21,7 @@ int rxInIndex = 0;
 void UART5_ReadCallback(uintptr_t context){
     if(UART5_ErrorGet() == UART_ERROR_NONE){
         // Update rxBuffer with new received data
-        rxBuffer[rxInIndex++] = rxByte;
+        rxBuffer[rxIndex++] = rxByte;
     
         // Continue Reading, wait for next interrupt
         UART5_Read(&rxByte, 1);
@@ -47,7 +47,7 @@ void UART5_Start( void ){
  * 
  */
 void UART5_ClearRxBuffer( void ){
-    rxInIndex = 0;
+    rxIndex = 0;
     int i;
     for(i=0; i<sizeof(rxBuffer);i++){
         rxBuffer[i] = 0;
@@ -69,6 +69,16 @@ void UART5_PrintRxBuffer( void ){
  * 
  * @return rxInIndex
  */
-int UART5_GetRxInIndex( void ){
-    return rxInIndex;
+int UART5_GetRxIndex( void ){
+    return rxIndex;
+}
+
+/**
+ * @Function UART5_GetRxInIndex
+ * @Brief Export Local Variable rxBuffer
+ * 
+ * @return rxInIndex
+ */
+char* UART5_GetRxBuffer( void ){
+    return rxBuffer;
 }

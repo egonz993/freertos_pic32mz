@@ -4,7 +4,11 @@
 // Section: Local Function Declarations
 // *****************************************************************************
 
-void APP_TaskCreate(TaskFunction_t pxTaskCode, const char * const name);
+TaskHandle_t taskHandle1 = NULL;
+TaskHandle_t taskHandle2 = NULL;
+TaskHandle_t taskHandle3 = NULL;
+TaskHandle_t taskHandle4 = NULL;
+TaskHandle_t taskHandle5 = NULL;
 
 
 // *****************************************************************************
@@ -23,37 +27,41 @@ void APP_Init( void ){
     printf("\n***************************************************************");
     printf("\n\n");
     
-    /* Create FreeRTOS Tasks */
-    APP_TaskCreate(myTask1, "task1");
-    APP_TaskCreate(myTask2, "task2");
-    APP_TaskCreate(myTask3, "task3");
-    APP_TaskCreate(myTask4, "task4");
-    APP_TaskCreate(myTask5, "task5");
+    /* Create FreeRTOS Tasks */ 
+    //xTaskCreate(callback, name, size, parameters, &taskHandle);
+    xTaskCreate(myTask1, "task1", 200, NULL, tskIDLE_PRIORITY, &taskHandle1);
+    xTaskCreate(myTask2, "task2", 200, NULL, tskIDLE_PRIORITY, &taskHandle2);
+    xTaskCreate(myTask3, "task3", 200, NULL, tskIDLE_PRIORITY, &taskHandle3);
+    xTaskCreate(myTask4, "task4", 200, NULL, tskIDLE_PRIORITY, &taskHandle4);
+    xTaskCreate(myTask5, "task5", 200, NULL, tskIDLE_PRIORITY, &taskHandle5);
     
     /* Start FreeRTOS Scheduler */
     vTaskStartScheduler();
 }
 
 
-
-// *****************************************************************************
-// Section: Other Function Definitions
-// *****************************************************************************
-
-/**
- * @Function APP_TaskCreate
- * @Brief Created to simplify the FreeRTOS xTaskCreate function
- * 
- * @param pxTaskCode    callback function
- * @param name          custom name for the task
- */
-void APP_TaskCreate(TaskFunction_t pxTaskCode, const char * const name){
-    xTaskCreate(
-        pxTaskCode,                 //Task Callback Function
-        name,                       //Task Custom Name
-        200,                        //Task Size
-        (void*)0,                   //Task Parameters
-        tskIDLE_PRIORITY,           //Task Priority
-        NULL                        //Task Hander
-    );
+TaskHandle_t APP_getTaskHandle(int handle){
+    switch(handle){
+        case 1: 
+            return taskHandle1;
+            break;
+        case 2: 
+            return taskHandle2;
+            break;
+        case 3: 
+            return taskHandle3;
+            break;
+        case 4: 
+            return taskHandle4;
+            break;
+        case 5: 
+            return taskHandle5;
+            break;
+        default: 
+            return NULL;
+            break;
+    }
+    
+    
+    return NULL;
 }

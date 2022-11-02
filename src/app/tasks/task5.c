@@ -24,8 +24,9 @@ void myTask5 (void *p){
         printf("Count: %i\n", cnt++);
         
         // Print the rxBuffer only when data is received
-        if(UART5_GetRxInIndex() > 0){
+        if(UART5_GetRxIndex() > 0){
             UART5_PrintRxBuffer();
+            UART5_debugging();
             UART5_ClearRxBuffer();
         }
         

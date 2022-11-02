@@ -37,6 +37,7 @@ int main ( void ){
     SYS_Initialize(NULL);
     
     /* Initialize Application and Create FreeRTOS Tasks */
+    //SYS_Tasks();
     APP_Init();
     
     /* Execution should not come here during normal operation */

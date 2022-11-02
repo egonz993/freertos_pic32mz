@@ -25,6 +25,7 @@
 /* Application Headers */
 #include "tasks.h"                      // Task Definitions
 #include "serial.h"                     // UART5 Functions
+#include "debug.h"                      // UART5 Debug Funtions
 
 
 
@@ -33,6 +34,13 @@
 // *****************************************************************************
 
 void APP_Init( void );
+
+TaskHandle_t APP_getTaskHandle(int handle);
+
+// *****************************************************************************
+// Section: Geters & Setters
+// *****************************************************************************
+
 
 
 #endif /* _APP_H */

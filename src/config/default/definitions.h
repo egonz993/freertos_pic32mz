@@ -53,7 +53,11 @@
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/gpio/plib_gpio.h"
 #include "peripheral/evic/plib_evic.h"
+#include "FreeRTOS.h"
+#include "task.h"
 #include "peripheral/uart/plib_uart5.h"
+#include "system/reset/sys_reset.h"
+#include "app.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
